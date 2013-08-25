@@ -50,6 +50,13 @@ class PyMouseMeta(object):
 
         raise NotImplementedError
 
+    def scroll(self, x, y, isUp = False, n = 1):
+        """Move the mouse wheel n times on a given x, y.
+        When isUp is true mouse wheel is scrolled up
+        """
+
+        raise NotImplementedError
+
     def position(self):
         """Get the current mouse position in pixels.
         Returns a tuple of 2 integers"""

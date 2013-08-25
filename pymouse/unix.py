@@ -43,6 +43,14 @@ class PyMouse(PyMouseMeta):
         fake_input(self.display, X.MotionNotify, x=x, y=y)
         self.display.sync()
 
+    def scroll(self, x, y, isUp = False, n = 1):
+        button = 5
+        if isUp:
+            button = 4
+        for i in range(n):
+            self.press(x, y, button)
+            self.release(x, y, button)
+
     def position(self):
         coord = self.display.screen().root.query_pointer()._data
         return coord["root_x"], coord["root_y"]
